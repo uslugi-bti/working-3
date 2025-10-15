@@ -1,75 +1,50 @@
-document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-    document.querySelector('nav').classList.toggle('active');
-});
-
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(question => {
+document.querySelectorAll('.faq-item__question').forEach(question => {
     question.addEventListener('click', () => {
         const item = question.parentNode;
         item.classList.toggle('active');
     });
 });
 
-// Scroll animations
-function checkScroll() {
-    const elements = document.querySelectorAll('.section-title, .feature-card, .job-card, .step, .story-card, .benefit-card, .course-card, .faq-item, .cta-section, footer');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.classList.add('animated');
+// Scroll Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
         }
     });
-}
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+});
 
 // Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 50) {
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        header.classList.remove('scrolled');
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
     }
 });
 
-// Initial check
-checkScroll();
+// Mobile menu toggle
+const mobileToggle = document.querySelector('.header__mobile-toggle');
+const headerNav = document.querySelector('.header__nav');
 
-// Check on scroll
-window.addEventListener('scroll', checkScroll);
-
-// Button click handlers with ripple effect
-document.querySelectorAll('.cta-button, .secondary-button').forEach(button => {
-    button.addEventListener('click', function(e) {
-        // Add ripple effect
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
+mobileToggle.addEventListener('click', () => {
+    headerNav.classList.toggle("active");
 });
 
-// Add hover effects for cards on touch devices
-document.querySelectorAll('.feature-card, .job-card, .course-card, .benefit-card, .story-card').forEach(card => {
-    card.addEventListener('touchstart', function() {
-        this.style.transform = 'translateY(-5px) scale(1.02)';
+const headerItems = document.querySelectorAll(".header__nav-link");
+
+for (let i = 0; i < headerItems.length; i++) {
+    headerItems[i].addEventListener("click", function () {
+        headerNav.classList.remove("active");
     });
-    
-    card.addEventListener('touchend', function() {
-        this.style.transform = '';
-    });
-});
+}
