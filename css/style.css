@@ -170,10 +170,17 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
-.hero__image img {
-    width: 100%;
+.hero__image {
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: #ccc;
+}
+
+.hero__image img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
 }
 
 /* Statistics Section */
@@ -380,6 +387,10 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+}
+
+.advantages__item.span-two {
+    grid-column: span 2;
 }
 
 .advantages__item:hover {
@@ -677,6 +688,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .advantages__grid {
         grid-template-columns: 1fr;
+    }
+
+    .advantages__item.span-two {
+        grid-column: span 1;
     }
     
     .reviews__slider {
