@@ -24,13 +24,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-button {
-    background: none;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -39,7 +32,7 @@ button {
 }
 
 /* Buttons */
-.button a {
+.button {
     display: inline-block;
     padding: 12px 24px;
     border-radius: 8px;
@@ -53,36 +46,30 @@ button {
 }
 
 .button--primary {
+    background-color: #ff4800;
     color: white;
 }
 
-.button--primary a {
-    background-color: #ff4800;
-}
-
-.button--primary a:hover {
+.button--primary:hover {
     background-color: rgba(255, 72, 0, 0.6);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 113, 0, 0.3);
 }
 
 .button--secondary {
-    color: rgb(255, 72, 0);
-}
-
-.button--secondary a {
     background-color: transparent;
+    color: rgb(255, 72, 0);
     border: 2px solid rgb(255, 72, 0);
 }
 
-.button--secondary a:hover {
+.button--secondary:hover {
     background-color: rgb(255, 72, 0);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 113, 0, 0.3);
 }
 
-.button--large a {
+.button--large {
     padding: 16px 32px;
     font-size: 1.1rem;
 }
@@ -148,7 +135,7 @@ button {
     color: rgb(255, 72, 0);
 }
 
-.header__button a {
+.header__button {
     padding: 10px 20px;
 }
 
@@ -347,7 +334,7 @@ button {
     padding: 0px 10px;
 }
 
-.vacancy-card__button a {
+.vacancy-card__button {
     margin-top: auto;
     width: 100%;
     display: inline-block;
@@ -548,12 +535,12 @@ button {
     margin-right: auto;
 }
 
-.cta__button a {
+.cta__button .button {
     background-color: white;
     color: rgb(255, 72, 0);
 }
 
-.cta__button a:hover {
+.cta__button .button:hover {
     background-color: #f8f9fa;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -700,9 +687,25 @@ button {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1120px) {
     .header__nav {
         display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 2rem;
+        border-bottom: 1px solid #000;
+        z-index: 999;
+    }
+
+    .header__nav.active {
+        display: block;
+    }
+
+    .header__menu {
+        display: block;
     }
     
     .header__burger {
@@ -712,6 +715,9 @@ button {
     .header__button {
         display: none;
     }
+}
+
+@media (max-width: 768px) {
     
     .hero__title {
         font-size: 2.2rem;
@@ -748,21 +754,21 @@ button {
     --primary-hover: #0069d9;
 }
 
-.color-scheme-blue .button--primary a {
+.color-scheme-blue .button--primary {
     background-color: var(--primary-color);
 }
 
-.color-scheme-blue .button--primary a:hover {
+.color-scheme-blue .button--primary:hover {
     background-color: var(--primary-hover);
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
-.color-scheme-blue .button--secondary a {
+.color-scheme-blue .button--secondary {
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.color-scheme-blue .button--secondary a:hover {
+.color-scheme-blue .button--secondary:hover {
     background-color: var(--primary-color);
 }
 
@@ -784,21 +790,21 @@ button {
     --primary-hover: #218838;
 }
 
-.color-scheme-green .button--primary a {
+.color-scheme-green .button--primary {
     background-color: var(--primary-color);
 }
 
-.color-scheme-green .button--primary a:hover {
+.color-scheme-green .button--primary:hover {
     background-color: var(--primary-hover);
     box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }
 
-.color-scheme-green .button--secondary a {
+.color-scheme-green .button--secondary {
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.color-scheme-green .button--secondary a:hover {
+.color-scheme-green .button--secondary:hover {
     background-color: var(--primary-color);
 }
 
