@@ -24,6 +24,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
+button {
+    background: none;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
 .section-title {
     font-size: 2.5rem;
     text-align: center;
@@ -32,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Buttons */
-.button {
+.button a {
     display: inline-block;
     padding: 12px 24px;
     border-radius: 8px;
@@ -46,30 +53,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button--primary {
-    background-color: #ff4800;
     color: white;
 }
 
-.button--primary:hover {
+.button--primary a {
+    background-color: #ff4800;
+}
+
+.button--primary a:hover {
     background-color: rgba(255, 72, 0, 0.6);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 113, 0, 0.3);
 }
 
 .button--secondary {
-    background-color: transparent;
     color: rgb(255, 72, 0);
+}
+
+.button--secondary a {
+    background-color: transparent;
     border: 2px solid rgb(255, 72, 0);
 }
 
-.button--secondary:hover {
+.button--secondary a:hover {
     background-color: rgb(255, 72, 0);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 113, 0, 0.3);
 }
 
-.button--large {
+.button--large a {
     padding: 16px 32px;
     font-size: 1.1rem;
 }
@@ -135,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
     color: rgb(255, 72, 0);
 }
 
-.header__button {
+.header__button a {
     padding: 10px 20px;
 }
 
@@ -334,7 +347,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0px 10px;
 }
 
-.vacancy-card__button {
+.vacancy-card__button a {
     margin-top: auto;
     width: 100%;
     display: inline-block;
@@ -535,12 +548,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: auto;
 }
 
-.cta__button .button {
+.cta__button a {
     background-color: white;
     color: rgb(255, 72, 0);
 }
 
-.cta__button .button:hover {
+.cta__button a:hover {
     background-color: #f8f9fa;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -687,25 +700,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 768px) {
     .header__nav {
         display: none;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 2rem;
-        border-bottom: 1px solid #000;
-        z-index: 999;
-    }
-
-    .header__nav.active {
-        display: block;
-    }
-
-    .header__menu {
-        display: block;
     }
     
     .header__burger {
@@ -715,9 +712,6 @@ h1, h2, h3, h4, h5, h6 {
     .header__button {
         display: none;
     }
-}
-
-@media (max-width: 768px) {
     
     .hero__title {
         font-size: 2.2rem;
@@ -754,21 +748,21 @@ h1, h2, h3, h4, h5, h6 {
     --primary-hover: #0069d9;
 }
 
-.color-scheme-blue .button--primary {
+.color-scheme-blue .button--primary a {
     background-color: var(--primary-color);
 }
 
-.color-scheme-blue .button--primary:hover {
+.color-scheme-blue .button--primary a:hover {
     background-color: var(--primary-hover);
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
-.color-scheme-blue .button--secondary {
+.color-scheme-blue .button--secondary a {
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.color-scheme-blue .button--secondary:hover {
+.color-scheme-blue .button--secondary a:hover {
     background-color: var(--primary-color);
 }
 
@@ -790,21 +784,21 @@ h1, h2, h3, h4, h5, h6 {
     --primary-hover: #218838;
 }
 
-.color-scheme-green .button--primary {
+.color-scheme-green .button--primary a {
     background-color: var(--primary-color);
 }
 
-.color-scheme-green .button--primary:hover {
+.color-scheme-green .button--primary a:hover {
     background-color: var(--primary-hover);
     box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }
 
-.color-scheme-green .button--secondary {
+.color-scheme-green .button--secondary a {
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.color-scheme-green .button--secondary:hover {
+.color-scheme-green .button--secondary a:hover {
     background-color: var(--primary-color);
 }
 
