@@ -688,16 +688,26 @@ button {
         display: block;
     }
 
+    .header__inner {
+        justify-content: flex-start;
+    }
+
+    .header__button {
+        margin: 0px 20px;
+        flex: 1 1 auto;
+        text-align: right;
+    }
+
+    .header__button a {
+        display: inline-block;
+    }
+
     .header__menu {
         display: block;
     }
     
     .header__burger {
         display: flex;
-    }
-    
-    .header__button {
-        display: none;
     }
 }
 
@@ -758,6 +768,15 @@ button {
     
     .statistics__inner {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .header__inner {
+        justify-content: space-between;
+    }
+    .header__button {
+        display: none;
     }
 }
 
